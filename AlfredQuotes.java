@@ -21,7 +21,14 @@ public class AlfredQuotes {
     }
 
     public String guestGreeting(){
-        return String.format("It is %s.", time);
+        if (rightNow.get(Calendar.HOUR_OF_DAY) >= 6 && rightNow.get(Calendar.HOUR_OF_DAY) <= 11)
+            return String.format("It is %s. Have you eaten breakfast already?", time);
+        else if (rightNow.get(Calendar.HOUR_OF_DAY) > 11 && rightNow.get(Calendar.HOUR_OF_DAY) <= 16)
+            return String.format("It is %s. Midday nap perhaps?", time);
+        else if (rightNow.get(Calendar.HOUR_OF_DAY) > 16 && rightNow.get(Calendar.HOUR_OF_DAY) <= 24)
+            return String.format("It is %s. Where'd the sun go?", time);
+        else 
+            return String.format("It is %s. You better be programming rn", time);
     }
     
     public String dateAnnouncement() {
